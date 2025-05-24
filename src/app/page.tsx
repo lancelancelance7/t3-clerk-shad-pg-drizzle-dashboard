@@ -1,12 +1,7 @@
-import { HydrateClient } from "~/trpc/server";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import Link from "next/link";
 import { Button } from "~/components/ui/button";
+import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
   return (
@@ -18,7 +13,9 @@ export default async function Home() {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <Button>
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
           </SignedIn>
         </div>
         <p className="m-auto text-2xl font-bold">
